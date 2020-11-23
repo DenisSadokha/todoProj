@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import HomePage from './HomePage';
+import Routers from './Routers';
 
 ReactDOM.render(
-    <HomePage/>,
+    <Routers/>,
   document.getElementById('root')
 );
 
