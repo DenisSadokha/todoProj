@@ -1,8 +1,8 @@
-"use strict";
 import { Observer, observer } from "mobx-react";
+import {observable} from "mobx"
 import React, {Component} from "react";
-import store from "./store/StoreLog"
- @Observer class Reg extends Component{
+import store from "./store/StoreReg"
+class Reg extends Component{
     constructor(props){
         super(props);
         this.loginIn = React.createRef();
@@ -23,12 +23,11 @@ render(){
           
            <input placeholder="Повторно пароль" ref = {this.passCheckIn}/>
            <button onClick={() => store.onRegistr(this.loginIn.current.value,
-             this.passIn.current.value)}>
+             this.passIn.current.value, this.passCheckIn.current.value)}>
                Зарегистриоваться
            </button>
            <h1>
-               {store.login}
-
+               {store.status}
            </h1>
           
         </div>
@@ -36,4 +35,4 @@ render(){
 }
 
 }
-export default Reg;
+export default observer(Reg);
